@@ -1,3 +1,6 @@
+using ExpenseManager.Domain;
+using ExpenseManager.Infra.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,6 +18,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+
 
 app.UseHttpsRedirection();
 
